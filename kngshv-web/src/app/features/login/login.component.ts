@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     this.loginService.login(this.validateForm.value).subscribe((result: any) => {
-      localStorage.setItem('token', result.token);
+      localStorage.setItem('access_token', result.token);
       this.router.navigateByUrl("/main-layout");
     }, (error) => {
       alert("password is valid");
