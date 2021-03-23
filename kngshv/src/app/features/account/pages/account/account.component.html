@@ -1,0 +1,65 @@
+<div style="height: 100%; width: 100%; padding: 16px ; box-sizing: border-box;">
+  <mat-card>
+    <mat-card-title>
+      Quản lý tài khoản
+
+    </mat-card-title>
+    <mat-card-subtitle>
+      Thông tin chi tiết tài khoản
+    </mat-card-subtitle>
+
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="16px" fxLayoutAlign="center">
+      <div fxFlex="25%">
+        <mat-form-field>
+          <mat-label>Tìm kiếm</mat-label>
+          <input matInput placeholder="Từ khóa..." (keyup)="applyFilter($event)">
+        </mat-form-field>
+      </div>
+      <div fxFlex="25%">
+        <button (click)="creatUpdateAccount()" mat-flat-button color="primary" style="margin-top: 5px;">
+          Tạo tài khoản
+        </button>
+      </div>
+      <div fxFlex="25%"> </div>
+      <div fxFlex="25%"> </div>
+    </div>
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef> STT </th>
+        <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef> Họ tên </th>
+        <td mat-cell *matCellDef="let element"> {{element?.fullName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef> Tai khoản </th>
+        <td mat-cell *matCellDef="let element"> {{element?.userName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="birthDay">
+        <th mat-header-cell *matHeaderCellDef> Ngày sinh </th>
+        <td mat-cell *matCellDef="let element"> {{element?.birthDay | date: 'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="controls">
+        <th mat-header-cell *matHeaderCellDef> Chức năng </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary" (click)="openUpdateAccount(element)">Sửa</button>
+          <button mat-button color="accent" (click)="openDeleteAccount(element.id)">Xóa</button>
+          <button mat-button style="color:green;" >Phân quyền</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef=" displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="openUpdateAccount(row)"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card>
+</div>

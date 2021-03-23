@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Thông tin tài khoản</h1>
+<form [formGroup]="accountFormGroup" (ngSubmit)="submitCreatAccount()">
+  <div mat-dialog-content>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Họ và tên</mat-label>
+      <input matInput placeholder="" formControlName="fullName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ngày sinh</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthDay">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Địa chỉ</mat-label>
+      <input matInput placeholder="" formControlName="address">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="" formControlName="userName">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="" formControlName="passwordHash" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$">
+      <mat-error> Mật khẩu phải có ít nhất 6 ký tự trong đó có chữ chữ số, chữ thường, chữ hoa, ký tự đặc biệt</mat-error>
+    </mat-form-field>
+
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-flat-button color="accent" style="float: right" type="submit" matTooltip="Cập nhật nhóm quản trị">
+      <mat-icon>check</mat-icon>
+      Tạo tài khoản
+    </button>
+    <button mat-button style="float: right" mat-dialog-close tabindex="-1" matTooltip="Hủy bỏ thao tác">
+      <mat-icon>close</mat-icon>
+      Hủy bỏ
+    </button>
+  </div>
+
+</form>

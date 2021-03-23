@@ -1,0 +1,37 @@
+<ng-container>
+  <mat-toolbar style="background-color: #F17D36;" class="layout-header">
+    <div fxLayout="row" fxLayout.xs="row" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" style="width: 100%;">
+      <div fxFlex="33%" fxFlex.xs="33%" class="funtion-nav">
+        <button class="font-layout" mat-flat-button style="background-color: #F17D36; color: white;"
+          (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <button class="button-menu" mat-button [matMenuTriggerFor]="beforeMenu">Before</button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <button mat-menu-item><mat-icon style="margin-right: 0;">account_circle</mat-icon> Tài khoản</button>
+          <button mat-menu-item><mat-icon style="margin-right: 0;">lock</mat-icon>Đổi mật khẩu</button>
+          <button mat-menu-item><mat-icon style="margin-right: 0;">account_circle</mat-icon>Đăng xuất</button>
+        </mat-menu>
+
+      </div>
+      <div fxFlex="33%" fxFlex.xs="33%">
+        <span style="color: whitesmoke;"></span>
+      </div>
+      <div fxFlex="33%" fxFlex.xs="33%"> </div>
+    </div>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="layout-container" autosize>
+    <mat-sidenav #sidenav mode="side" class="layout-sidenav" [fixedInViewport]="false">
+      <button class="buton-function" mat-button style="color: white;" *ngFor="let item of functions">
+        <mat-icon class="icon-item">{{ item.icon }}</mat-icon>{{item.name}}
+      </button>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</ng-container>

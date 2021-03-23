@@ -1,0 +1,54 @@
+<div class="center-parent">
+  <mat-card style="width: 30vw; height: 50vh; margin-top: 25vh; ">
+
+    <div fxLayout="column" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2%" fxLayoutAlign="center">
+      <div fxFlex="100%" class="image-center">
+        <img src="assets/images/undraw_Login_re_4vu2.svg" class="img-login-panel">
+      </div>
+      <div fxFlex="100%" class="image-center">
+        <div style="width: 90%;">
+          <mat-form-field appearance="outline">
+            <mat-label>Tên đăng nhập</mat-label>
+            <input matInput [(ngModel)]="userName">
+            <button mat-icon-button matSuffix style="color: lightgray;">
+              <mat-icon>face</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div fxFlex="100%" class="image-center">
+        <div style="width: 90%;">
+          <mat-form-field appearance="outline">
+            <mat-label>Mật khẩu</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              style="color: lightgray;" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxFlex="100%" class="image-center">
+        <div style="width: 90%;">
+          <div fxLayout="row" fxLayout.xs="row" fxLayoutWrap fxLayoutGap="2%" fxLayoutAlign="left">
+            <div fxFlex="50%">
+              <mat-checkbox style="color: lightgray;" [checked]="rememberMe">Nhớ mật khẩu</mat-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div fxFlex="100%" class="image-center">
+        <div style="width: 90%;">
+          <button mat-flat-button style="width: 100%; background-color: #F17D36; color: whitesmoke"
+            (click)="login()">Đăng
+            nhập</button>
+        </div>
+      </div>
+
+    </div>
+  </mat-card>
+</div>
