@@ -1,9 +1,9 @@
 <h1 mat-dialog-title>Thông tin học viên</h1>
-<form [formGroup]="learnerFormGroup" (ngSubmit)="submitCreateLearner()">
+<form [formGroup]="lectureFormGroup" (ngSubmit)="submitUpdateLecture()">
   <div mat-dialog-content>
     <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="16px" fxLayoutAlign="center">
       <div fxFlex="30%">
-        <img [src]="imageUrl" width="100%" height="300px" id="image">
+        <img [src]="imageFormGroup" width="100%" height="300px">
         <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
         <button (click)="file.click()"  mat-flat-button type="button" style="width: 100%;background-color: #F17D36; color: whitesmoke;">
           <mat-icon>upload</mat-icon>
@@ -15,17 +15,11 @@
           <mat-label>Họ và tên</mat-label>
           <input matInput placeholder="Nguyen Van A" formControlName="fullName">
         </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Ngày sinh</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="birthday">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
         <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="16px" fxLayoutAlign="center">
           <div fxFlex="50%">
             <mat-form-field appearance="outline">
               <mat-label>SĐT</mat-label>
-              <input matInput placeholder="0xxxxxxxxx" formControlName="phone">
+              <input matInput placeholder="0xxxxxxxxx"formControlName="phone" >
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Giới tính</mat-label>
@@ -35,30 +29,32 @@
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline">
-              <mat-label>Họ tên phụ huynh</mat-label>
-              <input matInput placeholder="" formControlName="parentFullName">
+              <mat-label>Facebook</mat-label>
+              <input matInput placeholder="" formControlName="facebook" >
             </mat-form-field>
           </div>
           <div fxFlex="50%">
             <mat-form-field appearance="outline">
-              <mat-label>Email</mat-label>
-              <input matInput type="email" placeholder="Ex. pat@example.com" formControlName="email">
+              <mat-label>Ngày sinh</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="birthday" >
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
             <mat-form-field appearance="outline">
-              <mat-label>Facebook</mat-label>
-              <input matInput placeholder="" formControlName="facebook">
+              <mat-label>Trình độ</mat-label>
+              <input matInput placeholder="" formControlName="level" >
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-              <mat-label>SĐT</mat-label>
-              <input matInput placeholder="" formControlName="parentPhone">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" placeholder="" formControlName="email">
             </mat-form-field>
           </div>
         </div>
         <mat-form-field appearance="outline">
           <mat-label>Địa chỉ</mat-label>
           <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
-            cdkAutosizeMaxRows="1" formControlName="address"></textarea>
+            cdkAutosizeMaxRows="1" formControlName="address" ></textarea>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Ghi chú</mat-label>
@@ -72,7 +68,7 @@
     <button mat-flat-button style="float: right;background-color: #F17D36; color: whitesmoke;" type="submit"
       matTooltip="Cập nhật">
       <mat-icon>check</mat-icon>
-      Thêm
+      Cập nhật
     </button>
     <button mat-button style="float: right" mat-dialog-close tabindex="-1" matTooltip="Hủy bỏ thao tác">
       <mat-icon>close</mat-icon>
@@ -80,4 +76,3 @@
     </button>
   </div>
 </form>
-

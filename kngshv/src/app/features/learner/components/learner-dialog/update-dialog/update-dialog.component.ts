@@ -76,7 +76,6 @@ export class UpdateDialogComponent extends BaseService implements OnInit {
       this.learner = this.learnerFormGroup.value;
       this.updateLearner(this.learner);
     }
-
   }
   public updateLearner(leaner: LearnerViewModel) {
     this._learnerService.updateLearner(leaner).subscribe((respone: any) => {

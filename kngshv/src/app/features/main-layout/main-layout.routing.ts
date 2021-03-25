@@ -28,6 +28,14 @@ const routes: Routes = [
           role: 'Learner.Access',
         },
       },
+      {
+        path: 'lectures',
+        canActivate: [RoleGuardService, AuthGuardService],
+        loadChildren: () => import('../lecture/lecture.module').then(m => m.LectureModule),
+        data: {
+          role: 'Lecture.Access',
+        },
+      },
 
     ]
   },

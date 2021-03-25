@@ -1,0 +1,75 @@
+<div style="height: 100%; width: 100%; padding: 16px ; box-sizing: border-box;">
+  <mat-card>
+    <mat-card-title>
+      Quản lý giáo viên
+      <mat-card-subtitle>
+        Thông tin chi tiết giáo viên
+      </mat-card-subtitle>
+    </mat-card-title>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="16px" fxLayoutAlign="center">
+      <div fxFlex>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="16px" fxLayoutAlign="left">
+          <div fxFlex="25%">
+            <mat-form-field>
+              <mat-label>Tìm kiếm</mat-label>
+              <input matInput placeholder="Từ khóa..." (keyup)="applyFilter($event)">
+            </mat-form-field>
+          </div>
+        </div>
+
+      </div>
+      <div fxFlex="60px">
+        <button (click)="openCreateLecture()" mat-flat-button color="primary" style=" float: right;">
+          Thêm
+        </button>
+      </div>
+    </div>
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef> STT </th>
+        <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef>Họ tên</th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName+' '+element.lastName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sex">
+        <th mat-header-cell *matHeaderCellDef>Giới tính</th>
+        <td mat-cell *matCellDef="let element"> {{element.sex ==true ?'Nam':'Nữ'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="birthday">
+        <th mat-header-cell *matHeaderCellDef>Ngày sinh</th>
+        <td mat-cell *matCellDef="let element"> {{element?.birthday | date: 'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef>Số điện thoại</th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Địa chỉ</th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="controls">
+        <th mat-header-cell *matHeaderCellDef> Chức năng </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary" (click)="openUpdateLecture(element)">Sửa</button>
+          <button mat-button color="accent" (click)="openDeleteLecture(element.id)">Xóa</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef=" displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="openUpdateLecture(row)"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card>
+</div>

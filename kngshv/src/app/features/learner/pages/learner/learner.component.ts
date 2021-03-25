@@ -34,6 +34,7 @@ export class LearnerComponent extends BaseService implements OnInit {
   public orginalAccounts: LearnerViewModel[] = [];
   public learners: LearnerViewModel[] = [];
   public selectedLearners;
+
   constructor(
     public _learnerService: LearnerService,
     public _router: Router,
