@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Thông tin môn học</h1>
+<form [formGroup]="subjectFormGroup" (ngSubmit)="submitCreatSubject()">
+  <div mat-dialog-content>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tên môn học</mat-label>
+      <input matInput placeholder="" formControlName="name">
+    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Trạng thái</mat-label>
+        <mat-select  formControlName="status">
+          <mat-option [value]="1">Đang hoạt động</mat-option>
+          <mat-option [value]="0">Ngừng hoạt động</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-flat-button color="accent" style="float: right" type="submit" matTooltip="Cập nhật nhóm quản trị">
+      <mat-icon>check</mat-icon>
+      Tạo môn học
+    </button>
+    <button mat-button style="float: right" mat-dialog-close tabindex="-1" matTooltip="Hủy bỏ thao tác">
+      <mat-icon>close</mat-icon>
+      Hủy bỏ
+    </button>
+  </div>
+
+</form>

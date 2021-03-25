@@ -37,6 +37,15 @@ const routes: Routes = [
         },
       },
 
+      {
+        path: 'subject',
+        canActivate: [RoleGuardService, AuthGuardService],
+        loadChildren: () => import('../subject/subject.module').then(m => m.SubjectModule),
+        data: {
+          role: 'Subject.Access',
+        },
+      },
+
     ]
   },
 ];
