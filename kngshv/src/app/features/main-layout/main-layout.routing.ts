@@ -45,6 +45,22 @@ const routes: Routes = [
           role: 'Subject.Access',
         },
       },
+      {
+        path: 'schedule',
+        canActivate: [RoleGuardService, AuthGuardService],
+        loadChildren: () => import('../lecture-schedules/lecture-schedules.module').then(m => m.LectureSchedulesModule),
+        data: {
+          role: 'LectureSchedule.Access',
+        },
+      },
+      {
+        path: 'blog',
+        canActivate: [RoleGuardService, AuthGuardService],
+        loadChildren: () => import('../blog/blog.module').then(m => m.BlogModule),
+        data: {
+          role: 'Blog.Access',
+        },
+      },
 
     ]
   },

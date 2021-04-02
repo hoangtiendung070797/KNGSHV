@@ -6,6 +6,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
 import { ComfirmComponent } from "./components/comfirm/comfirm.component";
 import { MaterialDesginModule } from "./material-desgin.module";
 import { BaseService } from "./services/base.service";
+import { CKEditorModule } from 'ng2-ckeditor';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BaseService } from "./services/base.service";
     FormsModule,
     MaterialDesginModule,
     FlexLayoutModule,
-    CommonModule
+    CommonModule,
+    CKEditorModule
   ],
   providers: [
     BaseService,
@@ -30,7 +32,8 @@ import { BaseService } from "./services/base.service";
     FormsModule,
     MaterialDesginModule,
     FlexLayoutModule,
-    CommonModule
+    CommonModule,
+    CKEditorModule
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

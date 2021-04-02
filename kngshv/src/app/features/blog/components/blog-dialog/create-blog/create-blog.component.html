@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Thông tin tài khoản</h1>
+<form [formGroup]="blogFormGroup" (ngSubmit)="submitCreatBlog()">
+  <div mat-dialog-content>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tiêu đề</mat-label>
+      <input matInput placeholder="" formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Danh mục</mat-label>
+      <mat-select formControlName="blogTypeId">
+        <mat-option *ngFor="let item of blogTypes" [value]="item.id">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <ckeditor [(ngModel)]="ckeditorContent" [ngModelOptions]="{standalone: true}"></ckeditor>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-flat-button color="accent" style="float: right" type="submit" matTooltip="Cập nhật nhóm quản trị">
+      <mat-icon>check</mat-icon>
+      Tạo bài viết
+    </button>
+    <button mat-button style="float: right" mat-dialog-close tabindex="-1" matTooltip="Hủy bỏ thao tác">
+      <mat-icon>close</mat-icon>
+      Hủy bỏ
+    </button>
+  </div>
+</form>
