@@ -16,11 +16,12 @@ import { UpdateSubjectComponent } from './components/subject-dialog/update-subje
     SubjectComponent,
     CreateSubjectComponent,
     UpdateSubjectComponent
-
   ],
-
   providers: [
-
+  ],
+  entryComponents:[
+    CreateSubjectComponent,
+    UpdateSubjectComponent
   ]
 })
 export class SubjectModule { }

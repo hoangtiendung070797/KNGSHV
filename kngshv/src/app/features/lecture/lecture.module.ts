@@ -26,6 +26,10 @@ import { CreateLectureComponent } from './components/lecture-dialog/create-lectu
     RoleGuardService,
     AuthGuardService,
     LectureService
+  ],
+  entryComponents:[
+    UpdateLectureComponent,
+    CreateLectureComponent
   ]
 })
 export class LectureModule { }

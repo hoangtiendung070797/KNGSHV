@@ -5,9 +5,9 @@ import { LectureSchedulesComponent } from './pages/lecture-schedules/lecture-sch
 
 const routes: Routes = [
   {
-    path: 'schedule-ui', component:LectureSchedulesComponent,
-    canActivate:[AuthGuardService]
-   },
+    path: 'schedule-ui', component: LectureSchedulesComponent,
+    canActivate: [AuthGuardService]
+  },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

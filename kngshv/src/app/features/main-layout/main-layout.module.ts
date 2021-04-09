@@ -8,12 +8,19 @@ import { PermissionComponent } from './pages/permission/permission.component';
 import { MaterialDesginModule } from 'src/app/shared/material-desgin.module';
 import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
 import { MultilevelMenuService } from "ng-material-multilevel-menu/lib/multilevel-menu.service";
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FlatpickrModule } from 'angularx-flatpickr';
 @NgModule({
   imports: [
     CommonModule,
     MainLayoutRoutingModule,
     MaterialDesginModule,
-
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
   ],
   declarations: [
     // layout

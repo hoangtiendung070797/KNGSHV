@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Thông tin lịch học</h1>
+<form [formGroup]="scheduleFormGroup" (ngSubmit)="submitCreatAccount()">
+  <div mat-dialog-content>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nội dung</mat-label>
+      <input matInput placeholder="" formControlName="note">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Từ ngày</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fromDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Đến ngày</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="toDate">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Thời gian bắt đầu</mat-label>
+      <input matInput placeholder="" formControlName="fromTime">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Thời gian kết thúc</mat-label>
+      <input matInput placeholder="" formControlName="toTime">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Giáo viên</mat-label>
+      <mat-select formControlName="lectureId">
+        <mat-option *ngFor="let item of lectures" [value]="item.id">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Môn học</mat-label>
+      <mat-select formControlName="lectureId">
+        <mat-option *ngFor="let item of lectures" [value]="item.id">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-flat-button color="accent" style="float: right" type="submit" matTooltip="Cập nhật nhóm quản trị">
+      <mat-icon>check</mat-icon>
+      Tạo tài khoản
+    </button>
+    <button mat-button style="float: right" mat-dialog-close tabindex="-1" matTooltip="Hủy bỏ thao tác">
+      <mat-icon>close</mat-icon>
+      Hủy bỏ
+    </button>
+  </div>
+
+</form>

@@ -11,6 +11,11 @@ import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { LoginService } from './features/login/services/login.service';
 
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { FlatpickrModule } from 'angularx-flatpickr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +30,8 @@ import { LoginService } from './features/login/services/login.service';
     CoreModule,
     SharedModule,
     RouterModule,
+    NgbModalModule,
+
   ],
   providers: [
     LoginService
